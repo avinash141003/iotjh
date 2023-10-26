@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang='en' class='notranslate' translate='no'>
+    <head>
+      <meta charset='UTF-8'>
+      <meta name='google' content='notranslate' />
+      <meta name='viewport' content='width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no' />
+      <meta name="author" content="Charmaine Chui" />
+      <meta name='description' content="A realtime application to monitor Bus ETAs via LTA's API. Uses Redis, Nodejs and SocketIO.">
+      <meta name='keywords' content='JavaScript,Redis,Nodejs,SocketIO,Realtime'>
+      <meta name="subject" content="Bus Routes in Singapore" />
+
+      <meta http-equiv='Content-Language' content='en' />
+      <meta http-equiv='X-UA-Compatible' content='IE=Edge,chrome=1' />
+
+      <meta name='msapplication-TileColor' content='#ffffff' />
+      <meta name='theme-color' content='#ffffff' />
+      <meta name='apple-mobile-web-app-status-bar-style' content='black-translucent' />
+      <meta name='apple-mobile-web-app-capable' content='yes' />
+      <meta name='mobile-web-app-capable' content='yes' />
+      <meta name='HandheldFriendly' content='True' />
+      <meta name='MobileOptimized' content='320' />  
+
+      <link rel="apple-touch-icon" sizes="76x76" href="img/favicon-76.png">
+      <link rel="apple-touch-icon" sizes="120x120" href="img/favicon-120.png">
+      <link rel="apple-touch-icon" sizes="152x152" href="img/favicon-152.png">
+      <link rel="icon" sizes="196x196" href="img/favicon-196.png">
+      <link rel="icon" type="image/x-icon" href="img/favicon.ico">
+
+      <link rel="stylesheet" href="css/bootstrap.min.css">
+      <link rel="stylesheet" href="css/leaflet-1.3.1.css">
+      <link rel="stylesheet" href="css/custom.css">
+
+      <title>SG Bus Routes</title>
+       
+  </head>
+  <body>
+    <div class="navbar navbar-inverse navbar-fixed-top border-0" role="navigation">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <div class="navbar-icon-container">
+            <a id="sidebar-toggle-btn" href="#" class="navbar-icon pull-right visible-xs rounded-lg unicode">Ⲷ</a>
+          </div>
+          <a class="navbar-brand" href="#"></a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li class="hidden-xs"><a id="list-btn" href="#" data-toggle="collapse" data-target=".navbar-collapse.in" class="rounded-lg unicode">Ⲷ</a></li>
+          </ul>
+        </div><!--/.navbar-collapse -->
+      </div>
+    </div>
+
+
+    <div id="container">
+      <div id="sidebar">
+        <div class="sidebar-wrapper">
+          <div class="panel panel-default" id="features">
+            <div class="panel-heading pl-2 bg-none">
+              <h3 class="panel-title">🚌 </h3>
+            </div>
+            <div class="panel-body p-2">
+              <div class="row no-gutters">
+                <div class="col-xs-12 col-md-12">
+                  <div class="input-group pr-2 pt-3">
+                    <span class="input-group-addon border-0 pr-1 pl-1 bg-none emoji">🔍</span>
+                    <input id='searchbar' type="text" class="form-control w-100 search" placeholder="Search Bus Service..." />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="sidebar-table user-select-none">
+              <table class="table table-hover" id="feature-list">
+                <thead class="hidden">
+                  <tr><th>Icon</th></tr>
+                  <tr></tr>
+                  <tr><th>Name</th></tr>
+                  <tr></tr>
+                  <tr><th>Chevron</th></tr>
+                  <tr></tr>
+                </thead>
+                <tbody class="list"></tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="map"></div>
+    </div>
+
+
+    <div id="loading">
+      <div class="loading-indicator">
+        <div class="progress progress-striped active">
+          <div class="progress-bar progress-bar-info progress-bar-full"></div>
+        </div>
+      </div>
+    </div>
+
+
+    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/leaflet-1.3.1.min.js"></script>
+    <script type="text/javascript" src="js/leaflet-antpath.min.js"></script>
+    <script defer type="text/javascript" src="js/svgxuse.min.js"></script>
+    <script type="text/javascript" src="js/socket.io.js"></script>
+    <script type="text/javascript" src="js/sg_bus_routes.js"></script>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+  </body>
+</html>

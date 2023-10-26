@@ -1,0 +1,702 @@
+html, body, #container {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+body {
+    padding-top: 0;
+}
+
+html body div.navbar.navbar-inverse.navbar-fixed-top:first-child {
+  position: absolute;
+  top: 0;
+  background-color: transparent;
+  border-color: #ddf6f7;
+  z-index: 3000;
+}
+
+input[type="radio"], 
+input[type="checkbox"] {
+    margin: 1px 0 0;
+}
+
+#start_end_bus_route_form input[type="radio"]:checked {
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAAAAXNSR0IArs4c6QAAA15JREFUaEPtmE1rE1EUhp9Mk+aDtqSgf8BFFyJu3LgQFFEQrFqroKB2KYi4EwUFXbhRaIsfpbhxo7UVbdW2iBVduHXjWoQu/AW1Tcxn08gZZ9o0zsfNZCYNZQayCHfu5Tznfc+5d26EbfJEtgkHIUi7KRkqEioSUAZCawWUWM/Lhop4Tp3axKPANeAsUFKZ0o6KCMQHIAYsACeAVTeYdgOphTBjnwPOuMG0E8hx4J0o0bm/g+RAjOXbBajoPAIziPnPQp52ARGI90A0tq+D9GiCSCxC4UuZlbtFqOqRTwPn7WDaAWQzxHCCSHwjrPxsmcyDoqmBwJwD1upF2WoQRwgz2Nx0iezoevN6CQzVw2wliBKEwOQmS2TH2hNkA2KvRvpRcpOdam2jAiHvb4Uip4HXemELxMMkkYR1GH+elZCf8VhayhxsBCRltMc7wDe3DcpmXCDeAB1uEJknRfJTZSWIRhQRiE/AASALHPEAExiEKkgC+GxAmBlqFGYdIrpbo3fM3k6NKqFqLYGQc89hmZAaipGfX6W6pO9QqjAbEHv+1YSWsnZ0drxIbkLdTrX2daqRTuCjCdF9M07yVIzVX2ssXclR/a0v4wazSYn0Y3sIr0q4KSIQs8AxedGEMCcpwshxYkIKO9qnkR4PDsKuRqLAvB2EA8xB4LsxLhCT0t51iLEkWpe1+JmRIvkZb3ZSsZaocVJe7LoeJzUonwb/P3XKLBs27Gs1hFvXkiP1QIMwGXGizGlQiRfG+cnj9uS8s4vFZpSVuZyjKhhSFLs0ep8GbycVa5nvqMMsVli6mkfbodErhd0TbE3US6dyRBGYKeMiwLlmFitoOzV7iOEi+bfNF7aV/1RAdLcAr0yY7ltxkv3WDcDO5Cv3CxTm1u8QHA+AXgpFFaQpmKAh3LqWXWKkw1zUN0oFZeogZIO85CXjbnMaUcRcSwOeAxfcYFqhhBmUFxCZ6whTrVb1C4Mga8JL17JT1RJGh7hXpLAQXGE307WcYOSzVW4C6b4Rp/yj0lIlmrVWLZjsM3Kc6a+j9b3FOhW81xqpX1OO/fIpfMgYaCmE1/Zrlxj5rv8K/LS6QHNrn82O+6WIGUcPsNJsUF7m+w3iJQZf5oQgvqTRx0VCRXxMpi9LhYr4kkYfF/kLLtRVQg9BVm8AAAAASUVORK5CYII=');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    border:2px solid #000000;
+    cursor:pointer;
+}
+
+#start_end_bus_route_form input[type="radio"]:disabled {
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: #cccccc;
+    border:2px solid #8d9298;
+    cursor:default;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+#start_end_bus_route_form input[type="radio"]:enabled {
+    -webkit-appearance: none;
+    appearance: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    background-color: #ffffff;
+    border:2px solid #000000;
+    cursor:pointer;
+}
+
+#start_end_bus_route_form input[type="radio"]:not(:disabled):is(:hover) {
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 50%;
+  width: 20px;
+  height: 20px;
+  background-color: #f5f5f5;
+  border:2px solid #687179;
+  cursor:pointer;
+}
+
+#sidebar {
+  display: block;
+  width: 250px;
+  height: 100%;
+  max-width: 100%;
+  float: left;
+  background-image: linear-gradient(320deg, rgb(165 210 220 / 0.3), rgb(98 233 231 / 0.25));
+  color: #47505a;
+}
+
+#map {
+    width: auto;
+    height: 100%;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+#loading {
+    position: absolute;
+    width: 220px;
+    height: 19px;
+    top: 50%;
+    left: 50%;
+    margin: -10px 0 0 -110px;
+    z-index: 20001;
+}
+
+#features {
+    margin: 0px;
+    border: none;
+    border-radius: 0px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    background-color: transparent;
+}
+
+.progress-bar-full {
+    width: 100%;
+}
+
+.panel-heading {
+    width: 250px;
+}
+
+.panel-body {
+    width: 250px;
+}
+
+.feature-row {
+    cursor: pointer;
+    width: 250px;
+}
+
+.sidebar-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.sidebar-table {
+    position: absolute;
+    width: 100%;
+    top: 103px;
+    bottom: 0px;
+    overflow-y: auto;
+    overflow-x: clip;
+}
+
+.table {
+    margin-bottom: 0px;
+}
+
+.navbar .navbar-brand {
+    font-weight: bold;
+    font-size: 25px;
+    color: #FFFFFF;
+}
+
+.navbar-collapse.in {
+    overflow-y: hidden;
+}
+
+.navbar-header .navbar-icon-container {
+    margin-right: 15px;
+}
+
+.navbar-header .navbar-icon {
+    line-height: 50px;
+    height: 50px;
+}
+
+.navbar-header a.navbar-icon {
+    margin-left: 25px;
+}
+
+@media (max-width: 992px) {
+    .navbar .navbar-brand {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 767px) {
+    #sidebar {
+        display: none;
+    }
+
+    .url-break {
+        word-break: break-all;
+        word-break: break-word;
+        -webkit-hyphens: auto;
+        hyphens: auto;
+    }
+
+    .dropdown-menu a i {
+        color: #FFFFFF;
+    }
+}
+
+/* Print Handling */
+@media print {
+    .navbar {
+        display: none !important;
+    }
+
+    .leaflet-control-container {
+        display: none !important;
+    }
+}
+
+#feature-list.table>tbody>tr.feature-row>td, 
+#feature-list.table>tbody>tr.feature-row>th, 
+#feature-list.table>tfoot>tr.feature-row>td, 
+#feature-list.table>tfoot>tr.feature-row>th, 
+#feature-list.table>thead>tr.feature-row>td, 
+#feature-list.table>thead>tr.feature-row>th {
+    padding: 1.15em 0.55em;
+}
+
+#feature-list.table-hover>tbody>tr.feature-row {
+    background-color: transparent;
+}
+
+#feature-list.table-hover>tbody>tr.feature-row:hover {
+    background-color: transparent;
+    background-image: linear-gradient(320deg, rgb(165 210 220 / 0.15), rgb(98 233 231 / 0.125));
+}
+
+#searchbar {
+    border-radius: 25px;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 25px;
+    color: #53738c;
+    background-image: url(../img/logo.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 25px;
+    font-weight: bolder;
+}
+
+#map {
+  width: auto;
+  height: 100%;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+#loading {
+  position: absolute;
+  width: 220px;
+  height: 19px;
+  top: 50%;
+  left: 50%;
+  margin: -10px 0 0 -110px;
+  z-index: 20001;
+}
+
+#features {
+  margin: 0px;
+  border: none;
+  border-radius: 0px;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  background-color:transparent;
+}
+.progress-bar-full {
+  width: 100%;
+}
+.panel-heading{
+   width: 250px;
+}
+.panel-body{
+  width: 250px;
+}
+.feature-row {
+  cursor: pointer;
+  width: 250px;
+}
+.sidebar-wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+.sidebar-table {
+  position: absolute;
+  width: 100%;
+  top: 103px;
+  bottom: 0px;
+  overflow: auto;
+}
+.table {
+  margin-bottom: 0px;
+}
+.navbar .navbar-brand {
+  font-weight: bold;
+  font-size: 25px;
+  color: #FFFFFF;
+}
+.navbar-collapse.in {
+  overflow-y: hidden;
+}
+.navbar-header .navbar-icon-container {
+  margin-right: 15px;
+}
+.navbar-header .navbar-icon {
+  line-height: 50px;
+  height: 50px;
+}
+.navbar-header a.navbar-icon {
+  margin-left: 25px;
+}
+@media (max-width: 992px) {
+  .navbar .navbar-brand {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 767px){
+  #sidebar {
+    display: none;
+  }
+  .url-break {
+    word-break: break-all;
+    word-break: break-word;
+    -webkit-hyphens: auto;
+      hyphens: auto;
+  }
+  .dropdown-menu a i{
+    color: #FFFFFF;
+  }
+}
+
+/* Print Handling */
+@media print {
+  .navbar {
+    display: none !important;
+  }
+  .leaflet-control-container {
+    display: none !important;
+  }
+}
+
+#feature-list.table>tbody>tr.feature-row>td, 
+#feature-list.table>tbody>tr.feature-row>th, 
+#feature-list.table>tfoot>tr.feature-row>td, 
+#feature-list.table>tfoot>tr.feature-row>th, 
+#feature-list.table>thead>tr.feature-row>td, 
+#feature-list.table>thead>tr.feature-row>th {
+    padding: 1.15em 0.55em;
+}
+
+#feature-list.table-hover>tbody>tr.feature-row {
+    background-color:transparent;
+}
+
+#feature-list.table-hover>tbody>tr.feature-row:hover {
+    background-color: transparent;
+    background-image:linear-gradient(320deg, rgb(165 210 220 / 0.15), rgb(98 233 231 / 0.125));
+}
+
+#searchbar {
+  border-radius: 25px;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    font-size: 25px;
+    color: #53738c;
+    background-image: url(../img/logo.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 25px;
+    font-weight: bolder;
+}
+
+#list-btn {
+  background-color: #53738C;
+  color: #FFFFFF;
+  font-weight: bolder;
+  text-decoration: none;
+  padding: 5px;
+  margin: 10px;
+  font-size: calc(1em + calc(20px - 1em));
+  height: unset;
+  border: 1px solid #53738C;
+}
+
+#sidebar-toggle-btn {
+    background-color: #53738C;
+    color: #FFFFFF;
+    font-weight: bolder;
+    text-decoration: none;
+    padding: 5px;
+    padding-top: 0;
+    padding-bottom: 2.5px;
+    margin: 10px;
+    font: small-caption;
+    font-weight: bolder;
+    font-size: calc(1em + calc(20px - 1em));
+    height: unset;
+    border: 1px solid #53738C;
+    position: absolute;
+    z-index: 3002;
+    left: 50px;
+}
+
+#list-btn:hover,
+#sidebar-toggle-btn:hover {
+  background-color: rgb(83 115 140 / 45%);
+  border: 1px solid rgb(83 115 140 / 45%);
+}
+
+.icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  stroke-width: 0;
+  stroke: currentColor;
+  fill: currentColor;
+}
+
+.leaflet-tooltip-left:before {
+  right: 0;
+  margin-right: -12px;
+  border-left-color: rgba(0, 0, 0, 0)
+}
+
+.leaflet-tooltip-right:before {
+  left: 0;
+  margin-left: -12px;
+  border-right-color: rgba(0, 0, 0, 0)
+}
+
+.leaflet-tooltip-custom {
+  position: absolute;
+  padding: 4px;
+  background-color: rgba(255, 255, 255, 0.75);
+  border: 2px solid #53738C; /* sync up with color of bus stop markere */
+  color: #53738C; /* sync up with color of bus stop markere */
+  white-space: nowrap;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  pointer-events: none;
+  box-shadow: 0 1px 2px rgba(69, 69, 69, 0.4);
+}
+
+.leaflet-marker-own {
+  position: absolute;
+  background-color: transparent;
+  color: #fff;
+  border: none;
+}
+
+.bus-stop-marker {
+  color: #fff;
+  font-size: 0.75em;
+  padding: 5px 3.5px 2.5px 4px;
+  box-shadow: inset 0px 0px 0 1px #f5f5f5;
+  opacity: 0.85;
+}
+
+.emoji {
+  font-family: Segoe UI Emoji;
+  white-space: nowrap;
+}
+.unicode {
+  font-family: Segoe UI Symbol;
+  white-space: nowrap;
+}
+.ascii-chars {
+  font-family: Cambria Math;
+  white-space: nowrap;
+}
+
+.badge.service_no,
+.busSvcNoSelection {
+  background-color: #92e3ff;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  color: #47505a;
+  padding: calc((calc(7px)/2) + 1px);
+  text-align: center;
+}
+
+
+span.busSvcNoSelection {
+  border: 2px solid #92e3ff;
+  padding: 0.75rem;
+  border-radius: 5px;
+}
+span.busSvcNoSelection.active {
+  border: 2px solid #88b2c1;
+  animation: blink 1.5s linear infinite;
+}
+@keyframes blink {
+  0% {
+    border: 2px solid rgb(136 178 193 / 100%)
+  }
+  20% {
+    border: 2px solid rgb(136 178 193 / 75%)
+  }
+  40% {
+    border: 2px solid rgb(136 178 193 / 50%)
+  }
+  80% {
+    border: 2px solid rgb(136 178 193 / 25%)
+  }
+  100% {
+    border: 2px solid #f5f5f5
+  }
+}
+
+.border-button {
+  border: solid 5px #FC5185;
+  transition: border-width 0.6s linear;
+}
+
+.border-button:hover { border-width: 10px; }
+
+
+.badge.service_no {
+  font-size: 12px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-block;
+  overflow: hidden;
+  border-radius:0;
+}
+
+.badge.service_no.rounded-right {
+  background-color: #f8f9fa;
+}
+
+tr.feature-row td {
+  vertical-align: middle;
+}
+
+tr.feature-row td.feature-name {
+  white-space: pre-line;
+  overflow-wrap: break-word;
+}
+
+#customInfoPanel {
+  height: calc(100vh - 100px);
+  flex-direction: column;
+  transition: all .3s ease-in-out;
+  display: flex;
+
+  right: 0;
+  bottom: 0;
+  transform: translateY(calc(50vh - 50px));
+
+  margin-bottom: 0;
+  width: 300px;
+  border-radius: 5px 5px 0 0;
+
+  box-shadow: 0 0 1rem 0 rgb(0 0 0 / 20%);
+  color: #47505a;
+  background-color: rgba(255, 255, 255, .15);
+  backdrop-filter: blur(5px);
+
+  position: absolute;
+  z-index: 3799;
+}
+    
+#customInfoPanel.expand {
+    transform: translateY(calc(50vh - 50px));
+    position: absolute;
+    z-index: 3799;
+    bottom: calc(50vh - 50px);
+}
+
+/*#service_route_details_tab, 
+#bus_eta_details_tab {
+    padding: 5px 7.5px;
+    height: calc(100vh - 152px);
+}
+*/
+
+#service_route_details_tab, 
+#bus_eta_details_tab {
+    /*padding: calc(5px + 0.75rem) 7.5px;*/
+    padding: 0 0 calc(5px + 0.75rem);
+    height: calc(100vh - 152px);
+}
+
+.busRouteDetailsSubtitle {
+  white-space: nowrap;
+}
+
+#service_route_details_tab div.busRouteDetailContentPanel,
+#bus_etas {
+  overflow-y: auto;
+  height: calc(100vh - 232.2px - 1.5rem);
+}
+
+#bus_eta_details_tab h6:first-child {
+  box-shadow: rgb(60 64 67 / 30%) 0px 1px 2px 0px, rgb(60 64 67 / 15%) 0px 2px 6px 2px;
+  height: calc(2rem + 1.25em + 12px);
+  display: grid;
+  align-content: center;
+}
+
+.busRouteStopNo {
+  color: #53738C;
+  font-weight: 600;
+  font-variant-numeric: proportional-nums;
+  text-shadow: 0px 0px 2px #f5f5f5;
+}
+
+div.leaflet-marker-own span.small.busRouteStopNo {
+  position: absolute;
+  top: 0;
+  left: calc(0.75em + 2.5px + 3.5px);
+  padding-left: 5px;
+}
+
+.user-select-none {
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.btn-busStopSelection {
+  color: unset;
+  background-color: transparent;
+  border-color: transparent;
+  width: -webkit-fill-available;
+  height: -webkit-fill-available;
+  box-shadow: rgba(67, 71, 85, 0.27) 0px 0px 0.25em, rgba(90, 125, 188, 0.05) 0px 0.25em 1em;
+}
+
+.btn-busStopSelection.active,
+.btn-busStopSelection:hover,
+.btn-busStopSelection:focus,
+.btn-busStopSelection:active,
+.btn-busStopSelection:focus-visible {
+    color: unset;
+    background-color: rgb(107 134 156 / 25%);
+    border-color: transparent;
+}
+
+.checkbox-inline, 
+.radio-inline {
+    position: relative;
+    display: inline-block;
+    padding-left: 25px;
+    margin-bottom: 0;
+    font-weight: 400;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+table#feature-list.table>tbody>tr>td, 
+table#feature-list.table>tbody>tr>th, 
+table#feature-list.table>tfoot>tr>td, 
+table#feature-list.table>tfoot>tr>th, 
+table#feature-list.table>thead>tr>td, 
+table#feature-list.table>thead>tr>th {
+  vertical-align: middle;
+}
+
+#resetAll:focus,
+#resetAll:focus-visible,
+#exportSelectedBusRoute:focus,
+#exportSelectedBusRoute:focus-visible,
+#toggleInfoPanel:focus,
+#toggleInfoPanel:focus-visible {
+  outline:none;
+}
+
+.navbar-inverse {
+    background-color: transparent !important;
+    border-color: #ddf6f7 !important;
+    position: absolute;
+    top: 0;
+    z-index: 3000;
+    max-width:150px;
+}
+
+#selectedBusSvcCaption {
+  white-space: pre-wrap
+}
+
+.navBtn {
+  width: 32px;
+  height: 32px;
+}
+
+#customInfoPanel.svg.icon {
+  width:1.35em;
+  height:1.35em;
+}
+
+
+#service_route_details_tab {
+  /*padding: 0 0 calc(5px + 0.75rem);*/
+  height: calc(100vh - 152px + 5px + 0.75rem);
+}
